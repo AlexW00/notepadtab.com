@@ -52,23 +52,23 @@ One example use case is this:
         }
     }
 
-	const debounce = (func, delay) => {
-		let debounceTimer;
-		return function () {
-			const context = this;
-			const args = arguments;
-			clearTimeout(debounceTimer);
-			debounceTimer = setTimeout(() => func.apply(context, args), delay);
-		};
-	};
+    const debounce = (func, delay) => {
+        let debounceTimer;
+        return function () {
+            const context = this;
+            const args = arguments;
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => func.apply(context, args), delay);
+        };
+    };
 
-	function addValueListener(textarea) {
-		textarea.addEventListener('input', debounce((event) => {
-                storeValue(event.target.value)
-            }, 300),
-			false
-		);
-	}
+    function addValueListener(textarea) {
+        textarea.addEventListener('input', debounce((event) => {
+            storeValue(event.target.value)
+        }, 300),
+        false
+        );
+    }
 
     function addHashListener(textarea) {
         window.addEventListener('hashchange', () => {
